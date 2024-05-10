@@ -1,6 +1,5 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
-import hotpotAnimation from '@/assets/Animated-Logo.mp4'
 // core version + navigation, pagination modules:
 // import Swiper from 'swiper'
 // // import Swiper and modules styles
@@ -9,70 +8,51 @@ import hotpotAnimation from '@/assets/Animated-Logo.mp4'
 // import 'swiper/css/pagination'
 
 export default {
-  name: 'HouJia Hot Pot',
-  components: {
-    NavBar,
-  },
-  data () {
-    return {
-      hotpotAnimation
-    }
-  },
-  mounted () {
-    window.addEventListener('scroll', this.handleScroll)
-    // this.bannerSwiper()
-  },
-
-  beforeUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    handleScroll () {
-      const video = this.$refs.videoRef
-      const viewportHeight = window.innerHeight
-      const scrollY = window.scrollY
-      if (scrollY <= viewportHeight) {
-        video.play()
-      } else {
-        video.pause()
-      }
+    name: 'HouJia Hot Pot',
+    components: {
+        NavBar,
     },
-    // bannerSwiper () {
-    //   new Swiper('.swiper', {
-    //   // Optional parameters
-    //     direction: 'vertical',
-    //     loop: true,
+    data() {
+        return {
+            // hotpotAnimation
+        }
+    },
+    mounted() {
+        // this.bannerSwiper()
+    },
+    methods: {
+        // bannerSwiper () {
+        //   new Swiper('.swiper', {
+        //   // Optional parameters
+        //     direction: 'vertical',
+        //     loop: true,
 
-    //     // If we need pagination
-    //     pagination: {
-    //       el: '.swiper-pagination'
-    //     },
+        //     // If we need pagination
+        //     pagination: {
+        //       el: '.swiper-pagination'
+        //     },
 
-    //     // Navigation arrows
-    //     navigation: {
-    //       nextEl: '.swiper-button-next',
-    //       prevEl: '.swiper-button-prev'
-    //     },
+        //     // Navigation arrows
+        //     navigation: {
+        //       nextEl: '.swiper-button-next',
+        //       prevEl: '.swiper-button-prev'
+        //     },
 
-    //     // And if we need scrollbar
-    //     scrollbar: {
-    //       el: '.swiper-scrollbar'
-    //     }
-    //   })
-    // }
+        //     // And if we need scrollbar
+        //     scrollbar: {
+        //       el: '.swiper-scrollbar'
+        //     }
+        //   })
+        // }
 
-  }
+    }
 }
 </script>
 
 <template>
-
     <body>
-        <video ref="videoRef" autoplay muted loop>
-            <source :src="hotpotAnimation" type="video/mp4">
-        </video>
-        <NavBar class="sticky top-0 z-30" />
-        <div class="row banner-section">
+        <NavBar />
+        <div class="banner-section">
             <div class="banner-all">
                 <!-- Slider main container -->
                 <!-- <Swiper class="swiper">
@@ -101,21 +81,14 @@ export default {
 
 .banner-section {
     background-color: cadetblue;
-    height: 100vh;
-    position: relative;
+    height: auto;
+    /* position: relative; */
 }
 
 .banner-all {
-    height: 600px;
+    height: 1200px;
     width: 60%;
     background-color: pink;
-    position: absolute;
-}
-
-video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    object-position: 75%;
+    /* position: absolute; */
 }
 </style>
